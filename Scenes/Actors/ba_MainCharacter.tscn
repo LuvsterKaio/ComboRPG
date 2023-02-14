@@ -1,0 +1,92 @@
+[gd_scene load_steps=21 format=3 uid="uid://cesymg7y7gk6t"]
+
+[ext_resource type="PackedScene" uid="uid://rf3t0s38el21" path="res://Scenes/Actors/Base_Actor.tscn" id="1_rsyeh"]
+[ext_resource type="Texture2D" uid="uid://cfiqyu61n6gqg" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_01.png" id="2_6u0sk"]
+[ext_resource type="Texture2D" uid="uid://bkh50b63g0krf" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_02.png" id="3_et5w4"]
+[ext_resource type="Texture2D" uid="uid://dh6ancfvng2u8" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_03.png" id="4_22eey"]
+[ext_resource type="Texture2D" uid="uid://n6m5ygqdrvd3" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_04.png" id="5_ugncp"]
+[ext_resource type="Texture2D" uid="uid://ij6pyxubhq5e" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_05.png" id="6_5iiwk"]
+[ext_resource type="Texture2D" uid="uid://bafxsqlykilec" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_06.png" id="7_mkpg0"]
+[ext_resource type="Texture2D" uid="uid://4jhgxrwa7euh" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_07.png" id="8_exd7a"]
+[ext_resource type="Texture2D" uid="uid://dn2wwdxbms05f" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_08.png" id="9_vh8n7"]
+[ext_resource type="Texture2D" uid="uid://2exrtjmjuscx" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_09.png" id="10_p4y3t"]
+[ext_resource type="Texture2D" uid="uid://da38ctft8m2k4" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_10.png" id="11_8ulqp"]
+[ext_resource type="Texture2D" uid="uid://cl5obnenwr6mc" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_11.png" id="12_t5iyt"]
+[ext_resource type="Texture2D" uid="uid://7bboq0bijbih" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_12.png" id="13_odh43"]
+[ext_resource type="Texture2D" uid="uid://uy1owhjkblkx" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_13.png" id="14_g8get"]
+[ext_resource type="Texture2D" uid="uid://bc3ajbjldogcc" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_14.png" id="15_toqve"]
+[ext_resource type="Texture2D" uid="uid://cb5oupmix834a" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_15.png" id="16_ovika"]
+[ext_resource type="Texture2D" uid="uid://lelne04ut63m" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_16.png" id="17_0kprt"]
+[ext_resource type="Texture2D" uid="uid://cpkw8mdorpfqi" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_17.png" id="18_hpir1"]
+[ext_resource type="Texture2D" uid="uid://bywd14ht06u45" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_18.png" id="19_2c1sn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cocu1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6u0sk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_et5w4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_22eey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ugncp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5iiwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mkpg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_exd7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vh8n7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p4y3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8ulqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t5iyt")
+}, {
+"duration": 0.9,
+"texture": ExtResource("13_odh43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_g8get")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_toqve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ovika")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0kprt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hpir1")
+}, {
+"duration": 0.8,
+"texture": ExtResource("19_2c1sn")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.5
+}]
+
+[node name="Actor" instance=ExtResource("1_rsyeh")]
+
+[node name="Image" parent="Base" index="0"]
+offset = Vector2(0, 244)
+sprite_frames = SubResource("SpriteFrames_cocu1")
+
+[node name="EffectAnchor" parent="Base" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121758, 2.9022, 0)

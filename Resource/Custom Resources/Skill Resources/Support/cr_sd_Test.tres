@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b38oxpvi1xxjy"]
+
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Battle/cr_SkillData.gd" id="1_b0gcs"]
+[ext_resource type="Texture2D" uid="uid://cc6aod8cgi1wb" path="res://Assets/Icons/Skills/Old/SkillIcon_Sword0.png" id="2_3fk7o"]
+
+[resource]
+script = ExtResource("1_b0gcs")
+skillName = "Default"
+skillIcon = ExtResource("2_3fk7o")
+skillModes = null
+skillElements = null
+skillGroup = "Weapon Technique"
+skillActions = null
+can_be_equipment = false

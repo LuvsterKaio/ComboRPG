@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_EXProute.gd" id="1_jxaph"]
+
+[sub_resource type="Curve" id="Curve_ccerh"]
+max_value = 2.0
+_data = [Vector2(0, 0.218182), 0.0, 0.0, 0, 0, Vector2(1, 0.4), 0.0962962, 0.0, 0, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("1_jxaph")
+base_exp = 100
+exp_curve = SubResource("Curve_ccerh")
+base_exp_growth = 0.25

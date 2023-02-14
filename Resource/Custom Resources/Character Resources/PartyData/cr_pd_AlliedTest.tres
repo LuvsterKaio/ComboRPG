@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dlbu4d0fwclrs"]
+
+[ext_resource type="Resource" uid="uid://chblrvprsxg53" path="res://Resource/Custom Resources/Character Resources/CharacterCore/Allied/cr_cc_Main0.tres" id="1_lyk7y"]
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_PartyData.gd" id="1_vlvc4"]
+
+[resource]
+script = ExtResource("1_vlvc4")
+party_characters = [ExtResource("1_lyk7y")]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://dng18os83mxxi"]
+
+[ext_resource type="PackedScene" uid="uid://dyglx8eybebcx" path="res://Scenes/Interface/Elements/Graphical/UIe_SkillIcon.tscn" id="1_4c2te"]
+[ext_resource type="Script" path="res://Scripts/Interface/UIe_SkillButton.gd" id="1_usnl5"]
+[ext_resource type="FontFile" uid="uid://hnfvskrjjyvv" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-Bold.ttf" id="3_6k8jr"]
+[ext_resource type="BitMap" uid="uid://pr8wppvh8hi3" path="res://Assets/Icons/Skills/Frames/SkillFrame_Hexa_bitmask.png" id="3_clhjg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ykoq"]
+font = ExtResource("3_6k8jr")
+font_size = 18
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="SkillButton" type="Control"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_usnl5")
+
+[node name="SkillIcon" parent="." instance=ExtResource("1_4c2te")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+texture_click_mask = ExtResource("3_clhjg")
+
+[node name="Cost" type="Label" parent="."]
+modulate = Color(0.568627, 0.905882, 1, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 37.0
+grow_vertical = 0
+text = "-"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[node name="ActionCost" type="Label" parent="."]
+self_modulate = Color(1, 0.772549, 0.380392, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "50"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[editable path="SkillIcon"]

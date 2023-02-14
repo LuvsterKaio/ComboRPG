@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyglx8eybebcx"]
+
+[ext_resource type="Shader" uid="uid://bdyjjjvn2rxq0" path="res://Resource/Native Resource/Materials/Shaders/vs_SkillIconFrame.tres" id="1_2oraq"]
+[ext_resource type="Texture2D" uid="uid://bstirji53l17f" path="res://Assets/Effects/Grayscale/Beam_2.png" id="2_bwbpx"]
+[ext_resource type="Texture2D" uid="uid://cx6rha380wgmp" path="res://Assets/Icons/Skills/Frames/SkillFrame_Hexa_f00.png" id="3_tihby"]
+[ext_resource type="Texture2D" uid="uid://cnutpmcbxff0m" path="res://Assets/Icons/Skills/New/SkillIcon_sword0.png" id="4_2coy1"]
+
+[sub_resource type="Gradient" id="Gradient_86u6e"]
+offsets = PackedFloat32Array(0, 0.916058)
+colors = PackedColorArray(1, 0.217409, 0.349378, 1, 0.978263, 0.488572, 3.85046e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k42l5"]
+gradient = SubResource("Gradient_86u6e")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hsb6i"]
+shader = ExtResource("1_2oraq")
+shader_parameter/EnergyScaling = Vector4(1, 1, 1, 1)
+shader_parameter/EnergyMovement = Vector4(0.2, 1, -0.2, 0.5)
+shader_parameter/TimeScale = 1.0
+shader_parameter/EnergyExposure = 0.2
+shader_parameter/BaseLuminosity = 0.25
+shader_parameter/Exposure = 1.25
+shader_parameter/EnergyTexture = ExtResource("2_bwbpx")
+shader_parameter/Gradient = SubResource("GradientTexture2D_k42l5")
+
+[node name="SkillIcon" type="Control"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 96.0
+pivot_offset = Vector2(48, 48)
+
+[node name="Frame" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_hsb6i")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tihby")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_2coy1")
+expand_mode = 1
+stretch_mode = 4

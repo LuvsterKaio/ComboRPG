@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cvixagjxjtbso"]
+
+[ext_resource type="Resource" uid="uid://imit0ku8bkii" path="res://Resource/Custom Resources/Character Resources/CharacterCore/Foe/cr_cc_FoeTest.tres" id="1_n1t2d"]
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_PartyData.gd" id="1_vlvc4"]
+
+[resource]
+script = ExtResource("1_vlvc4")
+party_characters = [ExtResource("1_n1t2d")]

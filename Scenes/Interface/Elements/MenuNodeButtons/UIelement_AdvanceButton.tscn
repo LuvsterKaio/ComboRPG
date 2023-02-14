@@ -1,0 +1,116 @@
+[gd_scene load_steps=16 format=3 uid="uid://cde7f6gxejb8b"]
+
+[ext_resource type="Shader" uid="uid://cnlduft5cx2k5" path="res://Resource/Native Resource/Materials/Shaders/vs_OptionButton.tres" id="1_gtmoo"]
+[ext_resource type="Script" path="res://Scripts/Interface/UIe_AdvanceMBNButton.gd" id="1_kr2dv"]
+[ext_resource type="Texture2D" uid="uid://dh0n07jdys1lo" path="res://Assets/Interface/ButtonAdornments/ButtonA_GothicOrnments_swords0.png" id="2_3mvnb"]
+[ext_resource type="FontFile" uid="uid://re2wkah26pf3" path="res://Resource/Native Resource/Fonts/Base/Liberation/LiberationSerif-BoldItalic.ttf" id="3_a8yxw"]
+[ext_resource type="StyleBox" uid="uid://bw8x33e8fus6y" path="res://Resource/Native Resource/StyleBoxes/Buttons/Basic0/sb_button_basic0_disabled.tres" id="4_l85ho"]
+[ext_resource type="StyleBox" uid="uid://dcs7ukmht43aw" path="res://Resource/Native Resource/StyleBoxes/Buttons/Basic0/sb_button_basic0_focus.tres" id="5_ugpqi"]
+[ext_resource type="Texture2D" uid="uid://di1hwfkl2ey44" path="res://Assets/Icons/System/Basic_Circle_ref.png" id="6_72dbe"]
+
+[sub_resource type="Gradient" id="Gradient_b21lm"]
+offsets = PackedFloat32Array(0, 0.908759)
+colors = PackedColorArray(0.325441, 0.325441, 0.325441, 1, 0.122252, 0.122252, 0.122252, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5lt7s"]
+gradient = SubResource("Gradient_b21lm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxiik"]
+shader = ExtResource("1_gtmoo")
+shader_parameter/GradientColor = SubResource("GradientTexture1D_5lt7s")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ycw"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 3
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1lbem"]
+font = ExtResource("3_a8yxw")
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0r5pi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0jst"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olhv1"]
+bg_color = Color(0.52549, 0.52549, 0.52549, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.439216, 0.439216, 0.439216, 1)
+border_blend = true
+corner_radius_top_right = 4
+
+[node name="AdvanceMenuButton" type="Control"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_kr2dv")
+metadata/_edit_group_ = true
+
+[node name="Back" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_bxiik")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q0ycw")
+
+[node name="Ornaments" type="TextureRect" parent="Back"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3mvnb")
+ignore_texture_size = true
+
+[node name="Name" type="Label" parent="."]
+offset_left = 69.0
+offset_top = 3.0
+offset_right = 217.0
+offset_bottom = 47.0
+text = "Skills"
+label_settings = SubResource("LabelSettings_1lbem")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0r5pi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u0jst")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_olhv1")
+theme_override_styles/disabled = ExtResource("4_l85ho")
+theme_override_styles/focus = ExtResource("5_ugpqi")
+
+[node name="Icon" type="TextureRect" parent="."]
+offset_top = -6.0
+offset_right = 52.0
+offset_bottom = 47.0
+texture = ExtResource("6_72dbe")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="button_up" from="Button" to="." method="_on_button_up"]

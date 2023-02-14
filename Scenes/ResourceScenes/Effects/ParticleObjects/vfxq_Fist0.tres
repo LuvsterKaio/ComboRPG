@@ -1,0 +1,14 @@
+[gd_resource type="QuadMesh" load_steps=3 format=3 uid="uid://ba2ub2w8oeuj8"]
+
+[ext_resource type="Texture2D" uid="uid://bvt3tgplml0gg" path="res://Assets/Effects/VFX/VFX_Fist0.png" id="1_md6lu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwk83"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_md6lu")
+
+[resource]
+material = SubResource("StandardMaterial3D_mwk83")
+size = Vector2(0.8, 0.8)

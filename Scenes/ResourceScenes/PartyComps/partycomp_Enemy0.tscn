@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://uduni5p46sqj"]
+
+[ext_resource type="PackedScene" uid="uid://c1n6o1o05gm2c" path="res://Scenes/ResourceScenes/PartyComps/Base_PartyComps.tscn" id="1_isitm"]
+
+[node name="PartyComp" instance=ExtResource("1_isitm")]
+
+[node name="0" parent="Positions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47923, 0, -0.217072)
+
+[node name="1" parent="Positions" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50939, 0, -1.15744)
+
+[node name="2" parent="Positions" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23585, 0, -2.33237)
+
+[node name="3" parent="Positions" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8463, 0, -3.56053)

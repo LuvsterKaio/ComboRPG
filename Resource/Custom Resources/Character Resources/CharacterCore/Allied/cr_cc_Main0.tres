@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="CharacterCore" load_steps=6 format=3 uid="uid://e0ipe34iveux"]
+
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_CharacterAttributes.gd" id="1_1nmtf"]
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_CharacterCore.gd" id="1_k6nti"]
+[ext_resource type="PackedScene" uid="uid://cesymg7y7gk6t" path="res://Scenes/Actors/ba_MainCharacter.tscn" id="2_sp51j"]
+[ext_resource type="Texture2D" uid="uid://c41fedgvhheau" path="res://Assets/Icons/Characters/ActorTags/icon_actortag_trajn0.png" id="2_wuonn"]
+
+[sub_resource type="Resource" id="Resource_7bsjc"]
+script = ExtResource("1_1nmtf")
+cHealth = 100
+cHealthRegen = 0.0
+cHealthStressDamage = 0.1
+cHealthStressDamageGrowthRate = 0.08
+cEnergy = 50
+cEnergyRegen = 0.0
+cEnergyOverdrive = 50.0
+cEnergyStressDamage = 0.1
+cEnergyStressDamageGrowthRate = 0.05
+cAction = 100.0
+cActionRegen = 0.0
+cActionDamageResist = 0.0
+cStrength = 6
+cTechnique = 6
+cConstitution = 6
+cIntelligence = 6
+cWill = 6
+cCharisma = 6
+cFaith = 6
+cLuck = 6
+cStressLimit = 100
+cStressResistance = 0
+cStressMultiplier = 0.0
+cInitiative = 5
+cInvestigation = 0
+cStudy = 0
+cTemperace = 0
+cThievery = 0
+cCritChance = 0.0
+cCritDamage = 0.0
+cBaseElementalResistance = 0.0
+cBaseStatusResistance = 0.0
+cNeutralResist = 0.0
+cNeutralMultiplier = 0.0
+cMetaphysicalResist = 0.0
+cMetaphysicalMultiplier = 0.0
+cSlashingResist = 0.0
+cSlashingMultiplier = 0.0
+cPunctureResist = 0.0
+cPunctureMultiplier = 0.0
+cBluntResist = 0.0
+cBluntMultiplier = 0.0
+cFlameResist = 0.0
+cFlameMultiplier = 0.0
+cColdResist = 0.0
+cColdMultiplier = 0.0
+cElectricResist = 0.0
+cElectricMultiplier = 0.0
+
+[resource]
+script = ExtResource("1_k6nti")
+characterName = "Trajn"
+characterIsUnique = true
+characterObject = ExtResource("2_sp51j")
+characterIconTag = ExtResource("2_wuonn")
+characterLevel = 1
+characterCurrentEXP = 0
+characterBaseAttributes = SubResource("Resource_7bsjc")
+usesEquipment = false

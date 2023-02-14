@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkvq4s8uv811t"]
+
+[ext_resource type="Script" path="res://Scripts/ResourceScenes/VFXContainer.gd" id="1_qnora"]
+
+[node name="VFXContainer" type="Node3D"]
+script = ExtResource("1_qnora")
+
+[node name="Base" type="Node3D" parent="."]

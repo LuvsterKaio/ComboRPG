@@ -1,0 +1,22 @@
+res://Scenes/Interface/Elements/SkillRelated
+res://Scripts/Interface
+res://Scenes/Interface/Elements
+res://Resource/Native Resource/Materials/Shaders
+res://Resource/Native Resource/Curve
+res://Scripts/Custom Resources/Stats
+res://Scenes/Interface/Elements/Graphical
+res://Scenes/Interface/Elements/MenuNodeButtons
+res://Resource/Native Resource/Gradients/1D
+res://Resource/Native Resource/StyleBoxes/Buttons/Basic0
+res://Scripts/Scenarios/Interface
+res://Scripts/Scenarios
+res://Resource/Native Resource/Materials/Canvas
+res://Scripts/Custom Resources/Battle
+res://Scenes/ResourceScenes/Effects/ParticleObjects
+res://Scenes/ResourceScenes/Effects/3D Effects/BattleEffects
+res://Scenes/ResourceScenes/Effects/3D Effects
+res://Scripts/ResourceScenes
+res://Scenes/ResourceScenes
+res://Scenes/Actors
+res://Scenes/ResourceScenes/CombatSceneResources
+res://Assets/Sprites/Characters/Allies/Main/Poses/Idle/Anim

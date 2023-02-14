@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5li5g08y2gr2"]
+
+[ext_resource type="Script" path="res://Scripts/Scenarios/Level/PlayerCharacter_Base.gd" id="1_nrs5f"]
+[ext_resource type="Texture2D" uid="uid://cit3p7maw1a12" path="res://Assets/Sprites/Characters/Allies/Main/Overworld/Idle/Main0.png" id="2_nyxfs"]
+[ext_resource type="Texture2D" uid="uid://bhvlgxvrdygim" path="res://Assets/Sprites/Characters/Allies/Main/Overworld/Idle/Main1.png" id="3_b2sik"]
+[ext_resource type="Texture2D" uid="uid://b6f0kpkp2sai0" path="res://Assets/Sprites/Characters/Allies/Main/Overworld/Idle/Main2.png" id="4_bdvgp"]
+[ext_resource type="Texture2D" uid="uid://bu5cbegwal8i8" path="res://Assets/Sprites/Characters/Allies/Main/Overworld/Idle/Main3.png" id="5_m7qnb"]
+[ext_resource type="Texture2D" uid="uid://cgvbq6ugtio7o" path="res://Assets/Sprites/Characters/Allies/Main/Overworld/Idle/Main4.png" id="6_cabby"]
+[ext_resource type="Texture2D" uid="uid://b5y3h22u5740f" path="res://Assets/Sprites/Characters/Allies/Main/Overworld/Idle/Main5.png" id="7_0st66"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4onna"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nyxfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b2sik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bdvgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m7qnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cabby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0st66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj61k"]
+radius = 0.49766
+height = 1.24032
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngnxi"]
+
+[sub_resource type="Sky" id="Sky_m4c7v"]
+sky_material = SubResource("ProceduralSkyMaterial_ngnxi")
+
+[sub_resource type="Environment" id="Environment_8e41f"]
+background_mode = 2
+sky = SubResource("Sky_m4c7v")
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+
+[node name="Level" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Geometry" type="Node3D" parent="Environment"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment/Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.547654, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(20.3391, 1, 11.7678)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6113, 0.405984, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(8.09345, 3.42087, 11.7678)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Environment/Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46448, 0, 2)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+polygon = PackedVector2Array(-1.96488, -0.957347, -2.51287, -0.289433, 2.11104, 2.11352, 3, 0)
+depth = 3.4
+
+[node name="Props" type="Node3D" parent="Environment"]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.887941, -0.459287, -0.024837, 0.409283, 0.764322, 0.498297, -0.209878, -0.452623, 0.866651, 0.338491, 9.25392, -0.330708)
+shadow_enabled = true
+shadow_bias = 0.06
+shadow_reverse_cull_face = true
+shadow_opacity = 0.7
+shadow_blur = 0.0
+directional_shadow_mode = 0
+directional_shadow_max_distance = 4.0
+
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="PlayerCharacter" type="CharacterBody3D" parent="Entities"]
+collision_layer = 3
+collision_mask = 13
+script = ExtResource("1_nrs5f")
+
+[node name="Image" type="AnimatedSprite3D" parent="Entities/PlayerCharacter"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.20053, 0)
+ignore_occlusion_culling = true
+gi_mode = 2
+gi_lightmap_scale = 2
+offset = Vector2(0, 21)
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_4onna")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.628065, 0)
+shape = SubResource("CapsuleShape3D_dj61k")
+
+[node name="Camera3D" type="Camera3D" parent="Entities/PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 0.955222, 0.295891, 0, -0.295891, 0.955222, 0, 2.50142, 6.26991)
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8e41f")

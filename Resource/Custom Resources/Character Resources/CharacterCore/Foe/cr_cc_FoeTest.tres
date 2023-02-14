@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="CharacterCore" load_steps=5 format=3 uid="uid://imit0ku8bkii"]
+
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_CharacterCore.gd" id="1_br0sk"]
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_CharacterAttributes.gd" id="1_lwd20"]
+[ext_resource type="PackedScene" uid="uid://doo6vdu5gxnd5" path="res://Scenes/Actors/ba_Enemy.tscn" id="2_nacob"]
+
+[sub_resource type="Resource" id="Resource_p0rvl"]
+script = ExtResource("1_lwd20")
+cHealth = 88
+cHealthRegen = 0.0
+cHealthStressDamage = 0.1
+cHealthStressDamageGrowthRate = 0.08
+cEnergy = 125
+cEnergyRegen = 0.0
+cEnergyOverdrive = 50.0
+cEnergyStressDamage = 0.1
+cEnergyStressDamageGrowthRate = 0.05
+cAction = 60.0
+cActionRegen = 0.12
+cActionDamageResist = 0.0
+cStrength = 7
+cTechnique = 3
+cConstitution = 8
+cIntelligence = 3
+cWill = 3
+cCharisma = 1
+cFaith = 0
+cLuck = 5
+cStressLimit = 180
+cStressResistance = 0
+cStressMultiplier = 0.2
+cInitiative = 0
+cInvestigation = 0
+cStudy = 0
+cTemperace = 0
+cThievery = 0
+cCritChance = 0.0
+cCritDamage = 0.0
+cBaseElementalResistance = 0.0
+cBaseStatusResistance = 0.0
+cNeutralResist = 0.0
+cNeutralMultiplier = 0.0
+cMetaphysicalResist = 0.0
+cMetaphysicalMultiplier = 0.0
+cSlashingResist = 0.0
+cSlashingMultiplier = 0.0
+cPunctureResist = 0.0
+cPunctureMultiplier = 0.0
+cBluntResist = 0.0
+cBluntMultiplier = 0.0
+cFlameResist = 0.0
+cFlameMultiplier = 0.0
+cColdResist = 0.0
+cColdMultiplier = 0.0
+cElectricResist = 0.0
+cElectricMultiplier = 0.0
+
+[resource]
+script = ExtResource("1_br0sk")
+characterName = "Alhabab"
+characterIsUnique = false
+characterObject = ExtResource("2_nacob")
+characterLevel = 1
+characterCurrentEXP = 0
+characterBaseAttributes = SubResource("Resource_p0rvl")
+usesEquipment = false

@@ -1,0 +1,389 @@
+[gd_scene load_steps=22 format=3 uid="uid://btoi7f4lw028b"]
+
+[ext_resource type="Script" path="res://Scripts/Interface/UIe_SkillFolder_Combat.gd" id="1_hlp6a"]
+[ext_resource type="PackedScene" uid="uid://dng18os83mxxi" path="res://Scenes/Interface/Elements/UIelement_BaseSkillButton.tscn" id="2_armsf"]
+[ext_resource type="FontFile" uid="uid://ddky47bfigw8h" path="res://Resource/Native Resource/Fonts/Base/Liberation/LiberationSerif-Italic.ttf" id="3_fij7o"]
+[ext_resource type="Material" uid="uid://cx26t2ua8a33n" path="res://Resource/Native Resource/Materials/Canvas/mat_CanvasAdd.tres" id="4_mlhur"]
+[ext_resource type="PackedScene" uid="uid://dyglx8eybebcx" path="res://Scenes/Interface/Elements/Graphical/UIe_SkillIcon.tscn" id="5_rambx"]
+[ext_resource type="Texture2D" uid="uid://c7yv1cnda5q7v" path="res://Assets/Icons/Skills/Frames/SkillFrame_Hexa_mask.png" id="6_w5qup"]
+[ext_resource type="FontFile" uid="uid://hnfvskrjjyvv" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-Bold.ttf" id="7_jb0r0"]
+[ext_resource type="Texture2D" uid="uid://b0htdq5besh83" path="res://Assets/Icons/Skills/Segments/icon_SkillSeg_Weapon0.png" id="8_1jbi4"]
+[ext_resource type="Texture2D" uid="uid://bbrnddj1v4hpd" path="res://Assets/Interface/Misc/DownArrow0.png" id="9_ath6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u8wb"]
+bg_color = Color(1, 1, 1, 0.137255)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvrl4"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fe1j"]
+bg_color = Color(0.411765, 0.411765, 0.411765, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 2
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_307k5"]
+bg_color = Color(0.19, 0.19, 0.19, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mk526"]
+font = ExtResource("3_fij7o")
+font_size = 18
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_w4fnp"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6nopb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7jo3"]
+texture = ExtResource("6_w5qup")
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(1, 1, 1, 0.137255)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2l06n"]
+texture = ExtResource("6_w5qup")
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.482353, 0.482353, 0.482353, 0.196078)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1jt4"]
+texture = ExtResource("6_w5qup")
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.352941, 0.352941, 0.352941, 0.313726)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8joce"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ykoq"]
+font = ExtResource("7_jb0r0")
+font_size = 18
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="SkillType" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 514.0
+offset_bottom = 30.0
+script = ExtResource("1_hlp6a")
+skill_option = ExtResource("2_armsf")
+
+[node name="Back" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5u8wb")
+
+[node name="Expand" type="Button" parent="."]
+layout_mode = 2
+offset_right = 514.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lvrl4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8fe1j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_307k5")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 3.0
+offset_right = 223.0
+offset_bottom = 29.0
+text = "Weapon Arts"
+label_settings = SubResource("LabelSettings_mk526")
+
+[node name="Line2D" type="Line2D" parent="Name"]
+show_behind_parent = true
+material = ExtResource("4_mlhur")
+position = Vector2(-2, 19)
+points = PackedVector2Array(0, 0, 350, 0)
+width = 1.0
+gradient = SubResource("Gradient_w4fnp")
+
+[node name="List" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 33.0
+offset_right = 504.0
+offset_bottom = 129.0
+columns = 5
+
+[node name="SkillButton" parent="List" instance=ExtResource("2_armsf")]
+layout_mode = 2
+
+[node name="SkillButton2" type="Control" parent="List"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="SkillIcon" parent="List/SkillButton2" instance=ExtResource("5_rambx")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Button" type="Button" parent="List/SkillButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6nopb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t7jo3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2l06n")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t1jt4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8joce")
+
+[node name="Cost" type="Label" parent="List/SkillButton2"]
+modulate = Color(0.568627, 0.905882, 1, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 37.0
+grow_vertical = 0
+text = "-"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[node name="ActionCost" type="Label" parent="List/SkillButton2"]
+self_modulate = Color(1, 0.772549, 0.380392, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "50"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[node name="SkillButton3" type="Control" parent="List"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="SkillIcon" parent="List/SkillButton3" instance=ExtResource("5_rambx")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Button" type="Button" parent="List/SkillButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6nopb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t7jo3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2l06n")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t1jt4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8joce")
+
+[node name="Cost" type="Label" parent="List/SkillButton3"]
+modulate = Color(0.568627, 0.905882, 1, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 37.0
+grow_vertical = 0
+text = "-"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[node name="ActionCost" type="Label" parent="List/SkillButton3"]
+self_modulate = Color(1, 0.772549, 0.380392, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "50"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[node name="SkillButton4" type="Control" parent="List"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="SkillIcon" parent="List/SkillButton4" instance=ExtResource("5_rambx")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Button" type="Button" parent="List/SkillButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6nopb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t7jo3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2l06n")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t1jt4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8joce")
+
+[node name="Cost" type="Label" parent="List/SkillButton4"]
+modulate = Color(0.568627, 0.905882, 1, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 37.0
+grow_vertical = 0
+text = "-"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[node name="ActionCost" type="Label" parent="List/SkillButton4"]
+self_modulate = Color(1, 0.772549, 0.380392, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "50"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[node name="SkillButton5" type="Control" parent="List"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="SkillIcon" parent="List/SkillButton5" instance=ExtResource("5_rambx")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Button" type="Button" parent="List/SkillButton5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6nopb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t7jo3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2l06n")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t1jt4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8joce")
+
+[node name="Cost" type="Label" parent="List/SkillButton5"]
+modulate = Color(0.568627, 0.905882, 1, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 37.0
+grow_vertical = 0
+text = "-"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[node name="ActionCost" type="Label" parent="List/SkillButton5"]
+self_modulate = Color(1, 0.772549, 0.380392, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "50"
+label_settings = SubResource("LabelSettings_2ykoq")
+horizontal_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 52.0
+offset_bottom = 27.0
+mouse_filter = 2
+texture = ExtResource("8_1jbi4")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ExpandIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = 26.0
+grow_horizontal = 0
+pivot_offset = Vector2(20, 12)
+mouse_filter = 2
+texture = ExtResource("9_ath6s")
+expand_mode = 1
+
+[connection signal="button_up" from="Expand" to="." method="_on_expand_button_up"]

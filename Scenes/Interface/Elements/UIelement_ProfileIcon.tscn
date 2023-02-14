@@ -1,0 +1,481 @@
+[gd_scene load_steps=27 format=3 uid="uid://0g6bapsepsen"]
+
+[ext_resource type="Script" path="res://Scripts/Interface/UIe_ProfileElement.gd" id="1_bp4a3"]
+[ext_resource type="Texture2D" uid="uid://di1hwfkl2ey44" path="res://Assets/Icons/System/Basic_Circle_ref.png" id="2_ovev0"]
+[ext_resource type="Script" path="res://Scripts/Interface/UIe_ProfilePropertyBar.gd" id="3_bu7qq"]
+[ext_resource type="Shader" uid="uid://37p7qctgdgiu" path="res://Resource/Native Resource/Materials/Shaders/vs_OrganicNoiseBar.tres" id="4_5o2a1"]
+[ext_resource type="FontFile" uid="uid://cip1hp2oqfp8a" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-Italic.ttf" id="4_b0bme"]
+[ext_resource type="FontFile" uid="uid://swi5r2otxfk7" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-ExtraBoldItalic.ttf" id="5_bagl5"]
+[ext_resource type="FontFile" uid="uid://d1vy0scb6k1af" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-Black.ttf" id="6_hs7i1"]
+[ext_resource type="FontFile" uid="uid://cppvbwhxpcp01" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-BoldItalic.ttf" id="7_755ao"]
+[ext_resource type="Texture2D" uid="uid://cgc6sqteokyqo" path="res://Assets/Effects/Grayscale/Beam_1.png" id="8_d0dt7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5o4d6"]
+bg_color = Color(0.988235, 0.988235, 0.988235, 1)
+skew = Vector2(0.2, 0)
+border_blend = true
+shadow_color = Color(0, 0, 0, 0.313726)
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_32xep"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjcec"]
+bg_color = Color(0.988235, 0.988235, 0.988235, 1)
+skew = Vector2(0.2, 0)
+border_blend = true
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbyfl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyy5j"]
+bg_color = Color(0.99, 0.99, 0.99, 1)
+skew = Vector2(0.2, 0)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2sic"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+skew = Vector2(0.2, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbfo3"]
+font = ExtResource("4_b0bme")
+font_size = 38
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j2g1m"]
+font = ExtResource("5_bagl5")
+font_size = 11
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lg2x2"]
+font = ExtResource("6_hs7i1")
+font_size = 13
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.301961)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_3m10r"]
+offsets = PackedFloat32Array(0, 0.70438)
+colors = PackedColorArray(0.695503, 0.695503, 0.695503, 1, 0.0885599, 0.0885599, 0.0885599, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3eslx"]
+gradient = SubResource("Gradient_3m10r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vi01"]
+shader = ExtResource("4_5o2a1")
+shader_parameter/NoiseMovementScale = Vector4(-0.2, 0.5, 0.1, 0.25)
+shader_parameter/TimeScale = 2.0
+shader_parameter/NoiseScale = Vector4(0.8, 0.4, 0.6, 0.2)
+shader_parameter/TextureExposure = 0.0
+shader_parameter/Exposure = 1.0
+shader_parameter/NoiseTexture = ExtResource("8_d0dt7")
+shader_parameter/SoftGradientTexture = SubResource("GradientTexture1D_3eslx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6hmap"]
+font = ExtResource("4_b0bme")
+font_size = 28
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7du2e"]
+font = ExtResource("7_755ao")
+font_size = 18
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="Animation" id="Animation_gfkap"]
+resource_name = "Hide"
+length = 0.6
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_rxdb0"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_va7n3"]
+_data = {
+"Hide": SubResource("Animation_gfkap"),
+"RESET": SubResource("Animation_rxdb0")
+}
+
+[node name="Profile" type="Control"]
+custom_minimum_size = Vector2(180, 160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 181.0
+offset_bottom = 160.0
+script = ExtResource("1_bp4a3")
+
+[node name="Base" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Icon" type="TextureRect" parent="Base"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 130.0
+offset_bottom = 129.0
+texture = ExtResource("2_ovev0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Bars" type="Control" parent="Base"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 108.0
+offset_right = 7.0
+offset_bottom = 108.0
+
+[node name="HPBar" type="Control" parent="Base/Bars"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 77.0
+offset_bottom = 27.0
+script = ExtResource("3_bu7qq")
+att_name = "current_health"
+
+[node name="Back" type="Panel" parent="Base/Bars/HPBar"]
+self_modulate = Color(0.117647, 0.117647, 0.117647, 1)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5o4d6")
+
+[node name="Recoil" type="ProgressBar" parent="Base/Bars/HPBar"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_32xep")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qjcec")
+value = 75.0
+show_percentage = false
+
+[node name="Current" type="ProgressBar" parent="Base/Bars/HPBar"]
+self_modulate = Color(0.507, 0.78, 0.1248, 1)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_vbyfl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wyy5j")
+value = 50.0
+show_percentage = false
+
+[node name="BarBorder" type="Panel" parent="Base/Bars/HPBar"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2sic")
+
+[node name="CurrentValue" type="Label" parent="Base/Bars/HPBar"]
+self_modulate = Color(0.74902, 1, 0.439216, 1)
+layout_mode = 0
+offset_top = -5.0
+offset_right = 43.0
+offset_bottom = 44.0
+scale = Vector2(0.8, 0.8)
+text = "50"
+label_settings = SubResource("LabelSettings_kbfo3")
+
+[node name="MaxValue" type="Label" parent="Base/Bars/HPBar"]
+visible = false
+self_modulate = Color(0.43362, 0.73, 0.1168, 1)
+layout_mode = 0
+offset_left = 84.5
+offset_top = -4.0
+offset_right = 121.5
+offset_bottom = 19.0
+text = "100"
+label_settings = SubResource("LabelSettings_j2g1m")
+
+[node name="BarName" type="Label" parent="Base/Bars/HPBar"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.705872, 1, 0.382813, 1)
+layout_mode = 0
+offset_left = -15.0
+offset_top = -3.5
+offset_right = 25.0
+offset_bottom = 15.5
+text = "HP"
+label_settings = SubResource("LabelSettings_lg2x2")
+
+[node name="EPBar" type="Control" parent="Base/Bars"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 2.0
+offset_right = 150.0
+offset_bottom = 27.0
+script = ExtResource("3_bu7qq")
+att_name = "current_energy"
+maxatt_name = "Energy"
+signal_name = "energy_altered"
+
+[node name="Back" type="Panel" parent="Base/Bars/EPBar"]
+self_modulate = Color(0.117647, 0.117647, 0.117647, 1)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5o4d6")
+
+[node name="Recoil" type="ProgressBar" parent="Base/Bars/EPBar"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_32xep")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qjcec")
+value = 75.0
+show_percentage = false
+
+[node name="Current" type="ProgressBar" parent="Base/Bars/EPBar"]
+self_modulate = Color(0.180392, 0.792157, 0.85098, 1)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_vbyfl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wyy5j")
+value = 50.0
+show_percentage = false
+
+[node name="BarBorder" type="Panel" parent="Base/Bars/EPBar"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2sic")
+
+[node name="CurrentValue" type="Label" parent="Base/Bars/EPBar"]
+self_modulate = Color(0.682353, 0.964706, 1, 1)
+layout_mode = 0
+offset_top = -5.0
+offset_right = 43.0
+offset_bottom = 44.0
+scale = Vector2(0.8, 0.8)
+text = "50"
+label_settings = SubResource("LabelSettings_kbfo3")
+
+[node name="MaxValue" type="Label" parent="Base/Bars/EPBar"]
+visible = false
+self_modulate = Color(0.43362, 0.73, 0.1168, 1)
+layout_mode = 0
+offset_left = 84.5
+offset_top = -4.0
+offset_right = 121.5
+offset_bottom = 19.0
+text = "100"
+label_settings = SubResource("LabelSettings_j2g1m")
+
+[node name="BarName" type="Label" parent="Base/Bars/EPBar"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.705872, 1, 0.382813, 1)
+layout_mode = 0
+offset_left = -15.0
+offset_top = -3.5
+offset_right = 25.0
+offset_bottom = 15.5
+text = "HP"
+label_settings = SubResource("LabelSettings_lg2x2")
+
+[node name="StressBar" type="Control" parent="Base/Bars"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 33.0
+offset_right = 144.0
+offset_bottom = 49.0
+script = ExtResource("3_bu7qq")
+att_name = "current_stress"
+maxatt_name = "StressLimit"
+signal_name = "stress_altered"
+
+[node name="Back" type="Panel" parent="Base/Bars/StressBar"]
+self_modulate = Color(0.117647, 0.117647, 0.117647, 1)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5o4d6")
+
+[node name="Recoil" type="ProgressBar" parent="Base/Bars/StressBar"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_32xep")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qjcec")
+value = 75.0
+show_percentage = false
+
+[node name="Current" type="ProgressBar" parent="Base/Bars/StressBar"]
+material = SubResource("ShaderMaterial_5vi01")
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_vbyfl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wyy5j")
+value = 50.0
+show_percentage = false
+
+[node name="BarBorder" type="Panel" parent="Base/Bars/StressBar"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2sic")
+
+[node name="CurrentValue" type="Label" parent="Base/Bars/StressBar"]
+self_modulate = Color(0.909804, 0.909804, 0.909804, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = -5.00001
+offset_right = 44.0
+offset_bottom = 32.0
+scale = Vector2(0.8, 0.8)
+text = "100"
+label_settings = SubResource("LabelSettings_6hmap")
+
+[node name="MaxValue" type="Label" parent="Base/Bars/StressBar"]
+visible = false
+self_modulate = Color(0.43362, 0.73, 0.1168, 1)
+layout_mode = 0
+offset_left = 84.5
+offset_top = -4.0
+offset_right = 121.5
+offset_bottom = 19.0
+text = "100"
+label_settings = SubResource("LabelSettings_j2g1m")
+
+[node name="BarName" type="Label" parent="Base/Bars/StressBar"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.705872, 1, 0.382813, 1)
+layout_mode = 0
+offset_left = -15.0
+offset_top = -3.5
+offset_right = 25.0
+offset_bottom = 15.5
+text = "HP"
+label_settings = SubResource("LabelSettings_lg2x2")
+
+[node name="Name" type="Label" parent="Base"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 54.0
+offset_top = 33.5
+offset_right = 125.0
+offset_bottom = 58.5
+text = "Trajn"
+label_settings = SubResource("LabelSettings_7du2e")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="StatusIcons" type="HBoxContainer" parent="Base"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 108.0
+offset_bottom = 67.0
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+playback_speed = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_va7n3")
+}

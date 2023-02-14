@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw77m4db1aaqu"]
+
+[ext_resource type="Script" path="res://Scripts/Interface/UIe_RangePoint.gd" id="1_cikgb"]
+[ext_resource type="StyleBox" uid="uid://xwttiupsll5k" path="res://Resource/Native Resource/StyleBoxes/Flat/sb_flat_colorblock-shade.tres" id="2_8rkiq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqxb7"]
+bg_color = Color(1, 1, 1, 1)
+shadow_color = Color(1, 1, 1, 0.490196)
+shadow_size = 2
+
+[node name="RangePoint" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cikgb")
+
+[node name="Hit" type="Panel" parent="."]
+self_modulate = Color(1, 1, 0.768627, 0.196078)
+offset_left = -151.0
+offset_top = -11.0
+offset_bottom = 11.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_8rkiq")
+
+[node name="Crit" type="Panel" parent="."]
+self_modulate = Color(1, 0.909804, 0.145098, 0.392157)
+offset_left = -36.0
+offset_top = -11.0
+offset_bottom = 11.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_8rkiq")
+
+[node name="Super" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.588235)
+offset_left = -3.0
+offset_top = -11.0
+offset_bottom = 11.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wqxb7")

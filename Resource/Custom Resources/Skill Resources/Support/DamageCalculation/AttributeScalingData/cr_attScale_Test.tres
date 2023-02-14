@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_AttributeScalingData.gd" id="1_j8ysu"]
+
+[resource]
+script = ExtResource("1_j8ysu")
+STRScaling = 0.0
+WILScaling = 0.0
+CONScaling = 0.0
+SPRScaling = 0.0
+AGIScaling = 0.0
+CNGScaling = 0.0
+addedAttributes = {}

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Scenes/Testing/LevelScaleTest_scr.gd" id="1_u67ks"]
+[ext_resource type="FontFile" uid="uid://hnfvskrjjyvv" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-Bold.ttf" id="2_1df3m"]
+[ext_resource type="Resource" path="res://Resource/Custom Resources/Character Resources/CharacterData/EXPRoute/cr_expr_Test.tres" id="2_2jj23"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f67md"]
+font = ExtResource("2_1df3m")
+
+[node name="LevelScaleTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u67ks")
+level_scaling_data = ExtResource("2_2jj23")
+
+[node name="Results" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 51.0
+offset_right = 86.0
+offset_bottom = 74.0
+text = "1    100
+2    150"
+label_settings = SubResource("LabelSettings_f67md")

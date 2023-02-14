@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://dbuny8rhe05bx" path="res://Assets/Sprites/Characters/Allies/Main/Poses/Old/main_character_Idle.png" id="1_on81w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmp18"]
+transparency = 1
+cull_mode = 2
+diffuse_mode = 3
+albedo_texture = ExtResource("1_on81w")
+billboard_mode = 1
+
+[node name="Actor" type="Node3D"]
+
+[node name="Base" type="Node3D" parent="."]
+
+[node name="Sprite" type="Sprite3D" parent="Base"]
+material_override = SubResource("StandardMaterial3D_bmp18")
+lod_bias = 0.001
+offset = Vector2(0, 118)
+billboard = 1
+shaded = true
+texture = ExtResource("1_on81w")
+
+[node name="Effect Anchor" type="Marker3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36863, 0)
+
+[node name="Animator" type="AnimationPlayer" parent="."]

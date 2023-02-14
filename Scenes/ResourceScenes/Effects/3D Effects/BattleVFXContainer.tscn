@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv2r0lit2ma0a"]
+
+[ext_resource type="PackedScene" uid="uid://dkvq4s8uv811t" path="res://Scenes/ResourceScenes/Effects/3D Effects/VFXContainer.tscn" id="1_0gbe6"]
+[ext_resource type="Script" path="res://Scripts/ResourceScenes/BattleVFXContainer.gd" id="1_7cn8c"]
+
+[node name="VFXContainer" instance=ExtResource("1_0gbe6")]
+script = ExtResource("1_7cn8c")

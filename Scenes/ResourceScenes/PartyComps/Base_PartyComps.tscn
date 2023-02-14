@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1n6o1o05gm2c"]
+
+[ext_resource type="Script" path="res://Scripts/Scenarios/Battle/cs_BasePartyComp.gd" id="1_wkwy5"]
+[ext_resource type="Texture2D" uid="uid://6ne1kj8f6f0o" path="res://icon.svg" id="2_2c62q"]
+
+[node name="PartyComp" type="Node3D"]
+script = ExtResource("1_wkwy5")
+
+[node name="Positions" type="Node3D" parent="."]
+
+[node name="0" type="Sprite3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32382, 0, -1.22578)
+offset = Vector2(0, 64)
+texture = ExtResource("2_2c62q")
+
+[node name="1" type="Sprite3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75929, 0, -0.805163)
+offset = Vector2(0, 64)
+texture = ExtResource("2_2c62q")
+
+[node name="2" type="Sprite3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.23537, 0, -2.77409)
+offset = Vector2(0, 64)
+texture = ExtResource("2_2c62q")
+
+[node name="Adjustments" type="Node3D" parent="."]
