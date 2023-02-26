@@ -17,18 +17,23 @@ extends Control
 @export var maxatt_name : String = "Health"
 @export var signal_name : String = "health_altered"
 
-@export_group("Update")
+@export_group("DISCOVERY & INFO")
+@export var number_known : bool = true
+@export var show_number_as_questionmark : bool = true
+@export var level_known : bool = true
+
+@export_group("UPDATE")
 @export var current_baseupdate_rate : float = 2.0  # COMPARED WITH HEALTH PERCENTAGE
 @export var current_rise_rate : float = 1  # RISING MOD
 @export var current_fall_rate : float = 0.01  # FALLING MOD
 
-@export_group("Recoil")
+@export_group("RECOIL")
 @export var update_with_recoil : bool = true
 @export var recoil_baseupdate_rate : float = 2.0  # COMPARED WITH HEALTH PERCENTAGE
 @export var recoil_rise_rate : float = 0.01  # RISING MOD
 @export var recoil_fall_rate : float = 1.0  # FALLING MOD
 
-@export_group("Number")
+@export_group("NUMBER")
 @export var update_with_number : bool = true
 @export var number_baseupdate_rate : float = 1.5  # COMPARED WITH HEALTH PERCENTAGE
 @export var number_rise_rate : float = 1.0  # RISING MOD
@@ -44,6 +49,7 @@ var current_value : float = 100
 var max_value     : float = 100
 
 var current_text  : float = 100
+var current_text_unknown : bool = false
 
 var current_tween : Tween = null
 var recoil_tween  : Tween = null
@@ -52,7 +58,7 @@ var number_tween  : Tween = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	setup_discovery()
 	pass # Replace with function body.
 
 
@@ -60,10 +66,10 @@ func _ready():
 func _process(_delta) -> void:
 	
 	if current_text != current_value:
-		label_currentvalue.text = str(round(current_text))
+		if !current_text_unknown:
+			label_currentvalue.text = str(round(current_text))
 	
 	pass
-
 
 
 
@@ -83,7 +89,11 @@ func install_bar(_actor_profile:ActorProfile) -> void:
 	
 	bar_current.value = current_value
 	bar_current.max_value = max_value
-	label_currentvalue.text = str(current_value)
+	if !number_known:
+		if !show_number_as_questionmark:
+			label_currentvalue.text = str(current_value)
+		
+	
 	label_maxvalue.text = str(max_value)
 	
 	bar_recoil.value = current_value
@@ -111,10 +121,13 @@ func update_values(new_value) -> void:
 	
 	if current_tween == null:
 		current_tween = create_tween()
+		current_tween.bind_node(self)
 	if recoil_tween == null:
 		recoil_tween = create_tween()
+		recoil_tween.bind_node(self)
 	if number_tween == null:
 		number_tween = create_tween()
+		recoil_tween.bind_node(self)
 	
 	if new_value > current_value:
 		var cur_update_time = update_time*current_rise_rate
@@ -137,7 +150,28 @@ func update_values(new_value) -> void:
 	pass
 
 
+# DISCOVERY FUNCTIONS
 
+func set_discovery(know_level:bool, know_number:bool) -> void:
+	number_known = know_number
+	level_known = know_level
+	setup_discovery()
+
+
+func setup_discovery() -> void:
+	if !number_known:
+		current_text_unknown = true
+		if show_number_as_questionmark:
+			label_currentvalue.text = "???"
+		else:
+			label_currentvalue.visible = false
+	else:
+		current_text_unknown = false
+		label_currentvalue.visible = true
+	
+	bar_current.visible = level_known
+	bar_recoil.visible = level_known
+	pass
 
 
 

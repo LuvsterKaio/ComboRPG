@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CharacterEquipment" load_steps=5 format=3 uid="uid://bmynewuwqwr8h"]
+
+[ext_resource type="Resource" uid="uid://djivfjdgjkgxk" path="res://Resource/Custom Resources/Character Resources/Inventory & Equipment/EquipmentSlot/equipSlot_Weapon.tres" id="1_ouksd"]
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_CharacterEquipments.gd" id="1_ri0ns"]
+[ext_resource type="Resource" uid="uid://s3erhdoyfy6c" path="res://Resource/Custom Resources/Character Resources/Inventory & Equipment/EquipmentSlot/equipSlot_Outfit.tres" id="2_1icwp"]
+[ext_resource type="Resource" uid="uid://csf0urh6oynga" path="res://Resource/Custom Resources/Character Resources/Inventory & Equipment/EquipmentSlot/equipSlot_Acessory.tres" id="3_txgsk"]
+
+[resource]
+script = ExtResource("1_ri0ns")
+equipment_slots = {
+"Accessories": [ExtResource("3_txgsk"), ExtResource("3_txgsk")],
+"Main Hand": [ExtResource("1_ouksd")],
+"Off Hand": [ExtResource("1_ouksd")],
+"Outfit": [ExtResource("2_1icwp")]
+}

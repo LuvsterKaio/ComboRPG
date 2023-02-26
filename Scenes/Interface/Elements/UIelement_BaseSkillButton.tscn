@@ -1,9 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://dng18os83mxxi"]
+[gd_scene load_steps=13 format=3 uid="uid://cak36cd6nends"]
 
 [ext_resource type="PackedScene" uid="uid://dyglx8eybebcx" path="res://Scenes/Interface/Elements/Graphical/UIe_SkillIcon.tscn" id="1_4c2te"]
 [ext_resource type="Script" path="res://Scripts/Interface/UIe_SkillButton.gd" id="1_usnl5"]
 [ext_resource type="FontFile" uid="uid://hnfvskrjjyvv" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-Bold.ttf" id="3_6k8jr"]
-[ext_resource type="BitMap" uid="uid://pr8wppvh8hi3" path="res://Assets/Icons/Skills/Frames/SkillFrame_Hexa_bitmask.png" id="3_clhjg"]
+[ext_resource type="Texture2D" uid="uid://brl5oob6fio3t" path="res://Assets/Icons/Skills/Frames/Hexa/Button/SkillFrame_Hexa_Pressed.png" id="3_n1kec"]
+[ext_resource type="Texture2D" uid="uid://d2cq1rg1o1po2" path="res://Assets/Icons/Skills/Frames/Hexa/Adorns/SkillFrame_Hexa_s02.png" id="3_unbdd"]
+[ext_resource type="Texture2D" uid="uid://opn3638h7uyo" path="res://Assets/Icons/Skills/Frames/SkillFrame_Null.png" id="3_uukh4"]
+[ext_resource type="BitMap" uid="uid://pr8wppvh8hi3" path="res://Assets/Icons/Skills/Frames/Hexa/Button/SkillFrame_Hexa_bitmask.png" id="3_vbe6k"]
+[ext_resource type="Texture2D" uid="uid://o774w0lmwyvd" path="res://Assets/Icons/Skills/Frames/Hexa/Button/SkillFrame_Hexa_Hover.png" id="4_120dq"]
+[ext_resource type="Texture2D" uid="uid://t7mqr55j02n" path="res://Assets/Icons/Skills/Frames/Hexa/Button/SkillFrame_Hexa_Disabled.png" id="5_nbn65"]
+[ext_resource type="Texture2D" uid="uid://cxa2dqcey0fkc" path="res://Assets/Icons/Skills/Frames/Hexa/Button/SkillFrame_Hexa_Focus.png" id="6_42ygx"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_26w8t"]
+blend_mode = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ykoq"]
 font = ExtResource("3_6k8jr")
@@ -22,19 +31,30 @@ layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
 
+[node name="Frame" parent="SkillIcon" index="0"]
+texture = ExtResource("3_unbdd")
+
+[node name="Icon" parent="SkillIcon" index="1"]
+mouse_filter = 0
+
 [node name="Button" type="TextureButton" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+material = SubResource("CanvasItemMaterial_26w8t")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 3.0
-offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-texture_click_mask = ExtResource("3_clhjg")
+texture_normal = ExtResource("3_uukh4")
+texture_pressed = ExtResource("3_n1kec")
+texture_hover = ExtResource("4_120dq")
+texture_disabled = ExtResource("5_nbn65")
+texture_focused = ExtResource("6_42ygx")
+texture_click_mask = ExtResource("3_vbe6k")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Cost" type="Label" parent="."]
 modulate = Color(0.568627, 0.905882, 1, 1)

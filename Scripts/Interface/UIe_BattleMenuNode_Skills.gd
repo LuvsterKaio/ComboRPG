@@ -7,6 +7,8 @@ extends BaseBMNode
 
 # REFERENCE
 @onready var folder_list : BoxContainer = get_node("Filter/Rows")
+@onready var folder_filter : Control = get_node("Filter")
+@onready var scroll : VScrollBar = get_node("Scroll")
 
 
 # EXPORT
@@ -22,6 +24,9 @@ var base_instance : Object = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	clean_skill_folders()
+	update_scroll()
+	folder_list.connect("resized", update_scroll)
 	pass # Replace with function body.
 
 
@@ -45,7 +50,7 @@ func expand_or_hide_all(expand:bool = true) -> void:
 
 
 func setup_character(actor:ActorProfile, save:bool = true) -> void:
-	self.setup_character(actor)
+	super.setup_character(actor)
 	
 	if character_focus != actor:
 		if character_focus != null:
@@ -63,6 +68,15 @@ func setup_character(actor:ActorProfile, save:bool = true) -> void:
 		else:
 			reuse_skill_folders(actor)
 		
+	
+	pass
+
+
+func clean_skill_folders() -> void:
+	var f_list = folder_list.get_children()
+	
+	for sf in f_list:
+		sf.queue_free()
 	
 	pass
 
@@ -117,3 +131,38 @@ func reuse_skill_folders(actor:ActorProfile) -> void:
 	pass
 
 
+# SCROLL FUNCTIONS
+
+func update_scroll() -> void:
+	var filter_s = folder_filter.size.y
+	var row_s = folder_list.size.y
+	
+	var page_s = (row_s/filter_s)
+	
+	if page_s > 1.0:
+		scroll.page = 100/page_s
+	else:
+		scroll.page = 100
+	
+	pass 
+
+
+func scroll_menu() -> void:
+	var filter_s = folder_filter.size.y
+	var row_s = folder_list.size.y 
+	
+	if filter_s < row_s:
+		var sd = row_s - filter_s
+		var pos = scroll.value
+		var tv = scroll.max_value - scroll.page
+		var relative_pos = pos / tv
+		var new_pos = sd*relative_pos
+		folder_list.position.y = new_pos
+		
+	
+	pass
+
+
+func _on_scroll_scrolling():
+	scroll_menu()
+	pass # Replace with function body.

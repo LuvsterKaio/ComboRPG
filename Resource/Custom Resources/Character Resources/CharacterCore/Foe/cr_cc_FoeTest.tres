@@ -62,5 +62,6 @@ characterIsUnique = false
 characterObject = ExtResource("2_nacob")
 characterLevel = 1
 characterCurrentEXP = 0
+can_use_Equipment = true
 characterBaseAttributes = SubResource("Resource_p0rvl")
 usesEquipment = false

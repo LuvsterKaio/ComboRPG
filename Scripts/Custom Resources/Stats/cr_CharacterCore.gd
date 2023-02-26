@@ -33,7 +33,8 @@ var characterEXProute  : EXPRoute = null
 @export var characterSkills : CharacterSkills = null
 
 @export_group("Equipments")
-@export var characterEquips : CharacterSkills = null
+@export var can_use_Equipment : bool = true
+@export var characterEquips : CharacterEquipment = null
 
 @export_group("Attributes")
 @export var characterBaseAttributes : CharacterAtt = null

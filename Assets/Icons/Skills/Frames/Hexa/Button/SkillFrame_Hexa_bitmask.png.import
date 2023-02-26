@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://pr8wppvh8hi3"
+path="res://.godot/imported/SkillFrame_Hexa_bitmask.png-c02f803e7c947be51eb13167009b7e09.res"
+
+[deps]
+
+source_file="res://Assets/Icons/Skills/Frames/Hexa/Button/SkillFrame_Hexa_bitmask.png"
+dest_files=["res://.godot/imported/SkillFrame_Hexa_bitmask.png-c02f803e7c947be51eb13167009b7e09.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

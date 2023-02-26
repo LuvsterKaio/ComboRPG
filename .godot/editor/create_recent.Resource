@@ -1,3 +1,5 @@
+EquipmentSlot
+CharacterEquipment
 Curve
 GradientTexture1D
 CharacterCore (cr_CharacterCore.gd)

@@ -10,6 +10,7 @@ extends Node
 @onready var calculation_core  : Node = get_node("CalculationCore")
 @onready var character_core    : Node = get_node("%CharacterCore")
 @onready var battleUI          : Control = get_node("UILayer/UI/BattleUI")
+@onready var battle_camera     : Node3D = get_node("Base/CameraPod")
 
 
 # EXPORTs
@@ -38,6 +39,10 @@ func initiate() -> void:
 	# UI
 	
 	pass
+
+
+func get_object_position_on_screen(obj:Object) -> Vector2:
+	return battle_camera.find_object_in_screen(obj)
 
 
 func get_operators() -> Dictionary:

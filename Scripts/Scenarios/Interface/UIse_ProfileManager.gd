@@ -34,7 +34,7 @@ func initialize_profiles(allied_character:Array) -> void:
 	
 	await get_tree().process_frame
 	
-	reset_profile_positions(true, true, 0.2)
+	initiate_profile_positions(true, true, 0.2)
 	
 	await profile_position_reset
 	emit_signal("profiles_ready")
@@ -54,7 +54,40 @@ func setup_allied_profiles(character_list:Array, initiate_hidden:bool = false) -
 	pass
 
 
-func reset_profile_positions(tween:bool = false, force_open:bool = false, step_time:float = 0.2) -> void:
+func focus_on_profile(profile:Control) -> void:
+	
+	move_profile_to_index(profile, 0, 0.2, true)
+	
+	pass
+
+
+func move_profile_to_index(profile:Control, index:int, time:float, virtual_drag:bool = true) -> void:
+	
+	var list_size = profiles.size()
+	if allied_layer.get_children().has(profile):
+		var profile_base = profile.get_child(0)
+		var profile_pos = profile_base.global_position
+		allied_layer.move_child(profile, index)
+		
+		if list_size > 1 and virtual_drag:
+			profile_base.global_position = profile_pos
+			profile.move_virtual(Vector2.ZERO, time, false)
+		
+	
+	pass
+
+
+func set_profiles_by_list() -> void:
+	
+	var count : int = 0
+	for sp in profiles:
+		move_profile_to_index(sp, count, 0.25, true)
+		count += 1
+	
+	pass
+
+
+func initiate_profile_positions(tween:bool = false, force_open:bool = false, step_time:float = 0.2) -> void:
 	
 	for rp in profiles:
 		if tween:

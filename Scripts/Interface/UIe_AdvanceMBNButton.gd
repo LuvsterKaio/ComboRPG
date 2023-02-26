@@ -2,9 +2,11 @@ extends Control
 
 
 # SIGNAL
+signal button_activated()
 
 
 # REFERENCEs
+@onready var menu : BaseBMNode = get_parent().get_parent()
 @onready var ornament : TextureRect = get_node("Back/Ornaments")
 @onready var nameLabel : Label = get_node("Name")
 @onready var icon : TextureRect = get_node("Icon")
@@ -12,7 +14,7 @@ extends Control
 
 
 # EXPORTs
-
+@export var next_menu_name : String = "Default"
 
 # DATA
 var menu_core : Control = null
@@ -30,7 +32,7 @@ func _process(_delta) -> void:
 
 
 func activate() -> void:
-	pass
+	menu.call_next_menu(next_menu_name)
 
 
 func hide_button(_true:bool = true) -> void:

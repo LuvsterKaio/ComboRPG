@@ -49,20 +49,26 @@ func open(_true:bool = true) -> void:
 		animator.play_backwards("Open")
 
 
+func get_link() -> Control:
+	return link
+
+func get_link_pos() -> Vector2:
+	return link.position
+
+
+func call_next_menu(call_name:String) -> void:
+	controller.slot_menu_by_name(call_name)
+
+
 func move_to_menu_link(other_menu:BaseBMNode, tween:bool = true, time:float = 0.4) -> void:
 	var other_link = other_menu.link
 	var new_pos = Vector2(other_link.position.x, anchor_position.y)
-	var start_pos = Vector2(other_link.position.x, controller.open_position.y)
+	var start_pos = Vector2(other_link.position.x, controller.menunodes_origin.y)
 	
 	if start_pos != position:
 		position = start_pos
 	
-	if tween:
-		var mov_tween = get_tree().create_tween()
-		mov_tween.tween_property(self, "position", new_pos, time)
-	else:
-		position = new_pos
-	
+	move(new_pos, tween, time)
 	
 	pass
 
@@ -70,18 +76,26 @@ func move_to_menu_link(other_menu:BaseBMNode, tween:bool = true, time:float = 0.
 func move_to_menu_origin(tween:bool = true, time:float = 0.4) -> void:
 	
 	var new_pos = Vector2(0.0, anchor_position.y)
-	var start_pos = Vector2(0.0, controller.open_position.y)
+	var start_pos = Vector2(0.0, controller.menunodes_origin.y)
 	
 	if start_pos != position:
 		position = start_pos
 	
-	if tween:
-		var mov_tween = get_tree().create_tween()
-		mov_tween.tween_property(self, "position", new_pos, time)
-	else:
-		position = new_pos
-	
+	move(new_pos, tween, time)
 	
 	pass
+
+
+func move(pos:Vector2, tween:bool = true, time:float = 0.4) -> void:
+	if tween:
+		var mov_tween = get_tree().create_tween()
+		var tweener = mov_tween.tween_property(self, "position", pos, time)
+		tweener.set_ease(Tween.EASE_IN_OUT)
+		tweener.set_trans(Tween.TRANS_CUBIC)
+	else:
+		position = pos
+	pass
+
+
 
 

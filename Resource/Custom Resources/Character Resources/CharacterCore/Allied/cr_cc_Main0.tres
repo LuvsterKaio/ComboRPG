@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterCore" load_steps=6 format=3 uid="uid://e0ipe34iveux"]
+[gd_resource type="Resource" script_class="CharacterCore" load_steps=7 format=3 uid="uid://e0ipe34iveux"]
 
 [ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_CharacterAttributes.gd" id="1_1nmtf"]
 [ext_resource type="Script" path="res://Scripts/Custom Resources/Stats/cr_CharacterCore.gd" id="1_k6nti"]
 [ext_resource type="PackedScene" uid="uid://cesymg7y7gk6t" path="res://Scenes/Actors/ba_MainCharacter.tscn" id="2_sp51j"]
+[ext_resource type="Resource" uid="uid://bmynewuwqwr8h" path="res://Resource/Custom Resources/Character Resources/Inventory & Equipment/CharacterEquipment/cequip_CharacterDefault.tres" id="2_ssf5s"]
 [ext_resource type="Texture2D" uid="uid://c41fedgvhheau" path="res://Assets/Icons/Characters/ActorTags/icon_actortag_trajn0.png" id="2_wuonn"]
 
 [sub_resource type="Resource" id="Resource_7bsjc"]
@@ -64,5 +65,7 @@ characterObject = ExtResource("2_sp51j")
 characterIconTag = ExtResource("2_wuonn")
 characterLevel = 1
 characterCurrentEXP = 0
+can_use_Equipment = true
+characterEquips = ExtResource("2_ssf5s")
 characterBaseAttributes = SubResource("Resource_7bsjc")
 usesEquipment = false

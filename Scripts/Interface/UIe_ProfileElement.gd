@@ -13,6 +13,7 @@ extends Control
 # DATA
 var actor_profile : ActorProfile = null
 var virtual_move_tween : Tween = null
+var expanded : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -37,12 +38,28 @@ func setup_profile(new_profile:ActorProfile) -> void:
 	
 	if actor_profile != new_profile:
 		actor_profile = new_profile
+		actor_profile.link_interface_element("UI Profile", self)
+		
 		nameLabel.text = actor_profile.profile_name
 		#actorIcon.texture = actor_profile.character_core.characterIcon
 		healthBar.install_bar(new_profile)
 		energyBar.install_bar(new_profile)
 		stressBar.install_bar(new_profile)
 	
+	pass
+
+
+func expand_profile(_true:bool) -> void:
+	if _true:
+		if !expanded:
+			animator.play("Expand")
+			expanded = true
+		
+	else:
+		if expanded:
+			animator.play_backwards("Expand")
+			expanded = false
+		
 	pass
 
 

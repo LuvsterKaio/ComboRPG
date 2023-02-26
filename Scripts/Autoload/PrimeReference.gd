@@ -11,10 +11,10 @@ var key_dictionary : Dictionary = {
 	"D" : preload("res://Assets/Icons/Keys/KeyIcon_D.png")
 }
 
-var group_skillframes : Dictionary = {
-	"Groupless" : preload("res://Assets/Icons/Skills/Frames/SkillFrame_Hexa_f00.png"),
-	"Weapon Attack" : preload("res://Assets/Icons/Skills/Frames/SkillFrame_Hexa_s01.png"),
-	"Divine Skills" : preload("res://Assets/Icons/Skills/Frames/SkillFrame_Hexa_s02.png")
+var group_skillframes_hexa : Dictionary = {
+	"Groupless" : preload("res://Assets/Icons/Skills/Frames/Hexa/SkillFrame_Hexa_f00.png"),
+	"Weapon Attack" : preload("res://Assets/Icons/Skills/Frames/Hexa/Adorns/SkillFrame_Hexa_s01.png"),
+	"Divine Skills" : preload("res://Assets/Icons/Skills/Frames/Hexa/Adorns/SkillFrame_Hexa_s02.png")
 }
 
 var skillgroup_icons : Dictionary = {
@@ -39,11 +39,20 @@ func _process(_delta) -> void:
 	pass
 
 
-func get_skillframe(groupname:String = "Groupless") -> Texture:
+func get_skillframe(frame_type:String = "Hexa", groupname:String = "Groupless") -> Texture:
 	var result = null
+	var list = group_skillframes_hexa
 	
-	if group_skillframes.has(groupname):
-		result = group_skillframes[groupname]
+	match frame_type:
+		"Hexa":
+			list = group_skillframes_hexa
+			
+		"Diam":
+			list = null
+		
+	
+	if list.has(groupname):
+		result = list[groupname]
 	else:
 		result = "Groupless"
 	

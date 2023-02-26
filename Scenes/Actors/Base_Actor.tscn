@@ -1,31 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://rf3t0s38el21"]
+[gd_scene load_steps=3 format=3 uid="uid://rf3t0s38el21"]
 
 [ext_resource type="Script" path="res://Scripts/cs_BaseActor.gd" id="1_3k0iv"]
-[ext_resource type="Texture2D" uid="uid://csleq22c0y821" path="res://Assets/Sprites/Characters/Allies/Main/Poses/Idle/Anim/ProjectMain_full_Idle_24.png" id="25_ckwtw"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hlgst"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("25_ckwtw")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 12.0
-}]
+[ext_resource type="Texture2D" uid="uid://c8evfmp0v8kqb" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_01.png" id="2_fkvmn"]
 
 [node name="Actor" type="Node3D"]
 script = ExtResource("1_3k0iv")
 
 [node name="Base" type="Node3D" parent="."]
 
-[node name="Image" type="AnimatedSprite3D" parent="Base"]
-offset = Vector2(0, 160)
+[node name="Image" type="Sprite3D" parent="Base"]
+offset = Vector2(0, 112)
 billboard = 1
-texture_filter = 1
-frames = SubResource("SpriteFrames_hlgst")
-animation = &"Idle"
-playing = true
+texture_filter = 2
+texture = ExtResource("2_fkvmn")
 
 [node name="EffectAnchor" type="Marker3D" parent="Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121758, 2.04529, 0)

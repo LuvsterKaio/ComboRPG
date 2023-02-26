@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bvo3k6l82kken"]
+
+[ext_resource type="Shader" uid="uid://eigbp850v447" path="res://Resource/Native Resource/Materials/Shaders/vs_ActorBaseShader.tres" id="1_7y2ct"]
+[ext_resource type="Texture2D" uid="uid://cfiqyu61n6gqg" path="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_01.png" id="2_5w12q"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_7y2ct")
+shader_parameter/FlipHorizontal = false
+shader_parameter/FlipVertical = false
+shader_parameter/OutlineSize = 0.0
+shader_parameter/OutlineColor = Color(1, 0, 1, 0)
+shader_parameter/Metallic = 0.0
+shader_parameter/Roughness = 1.0
+shader_parameter/Specular = 0.5
+shader_parameter/SelfBrillance = 0.0
+shader_parameter/ColorOverlay = Color(0.282353, 0.760784, 1, 0)
+shader_parameter/CharacterTexture = ExtResource("2_5w12q")

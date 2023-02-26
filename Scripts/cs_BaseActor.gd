@@ -6,11 +6,15 @@ class_name BattleActor
 
 
 # REFERNCEs
+@onready var main_image : Node3D = get_node("Base/Image")
+@onready var effect_anchor : Node3D = get_node("Base/EffectAnchor")
+@onready var character_mat : Material = get_node("Base/Image").material_override
 var operator : Node = null
-@onready var main_image : AnimatedSprite3D = get_node("Base/Image")
+
 
 # EXPORTs
-
+@export_group("EFFECTS")
+@export var default_flash_curve : Curve = null
 
 # DATA
 	# CHARACTER DATA
@@ -30,6 +34,14 @@ var pos_dynamics : Array = [] :
 		
 	
 
+	# EFFECTS
+		# COLOR FLASH
+var flash_tween    : Tween = null
+var flash_progress : float = 0.0
+var flash_color    : Color = Color.WHITE
+var flash_curve    : Curve = null
+var flash_texture  : Texture = null
+var flashing       : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,12 +51,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
+	if flashing:
+		process_flash()
 	pass
 
 
+
+# DEFINITION FUNCTIONS
+
 func set_side() -> void:
 	var allied = character_profile.character_allied
-	var _main_image : AnimatedSprite3D = get_node("Base/Image")
+	var _main_image : Node3D = get_node("Base/Image")
 	_main_image.flip_h = !allied
 	
 	pass
@@ -52,11 +69,54 @@ func set_side() -> void:
 func get_side() -> bool:
 	return character_profile.character_allied
 
-
 func setup_character_data(cprofile:Object) -> void:
 	character_profile = cprofile
 	pass
 
+
+# VFX FUNCTIONS and AUXILIATORIES
+
+func call_flash(color:Color, duration:float, scroll_texture:Texture = null, curve:Curve = default_flash_curve) -> void:
+	
+	flashing = true
+	
+	if flash_tween != null:
+		if flash_tween.is_running():
+			flash_tween.kill()
+		flash_tween.tween_property(self, "flash_progress", 1.0, duration)
+		
+	else:
+		flash_tween = create_tween().bind_node(self)
+		flash_tween.tween_property(self, "flash_progress", 1.0, duration)
+		flash_tween.connect("finished", reset_flash)
+	
+	flash_color = color
+	flash_texture = scroll_texture
+	flash_curve = curve
+	
+	pass
+
+func process_flash() -> void:
+	
+	var intensity = flash_curve.sample(flash_progress)
+	var fcolor = flash_color
+	fcolor.a = intensity
+	character_mat.set_shader_param("Color Overlay", fcolor)
+	
+	pass
+
+func reset_flash() -> void:
+	
+	flashing = false
+	flash_color = Color.WHITE
+	flash_curve = null
+	flash_texture = null
+	flash_progress = 0.0
+	pass
+
+
+
+# POSITIONAL FUNCTIONS
 
 func position_dynamics(pos_values:Array) -> void:
 	
@@ -84,6 +144,8 @@ func reset_pos_dynamics() -> void:
 	pos_dynamics = []
 	pos_tween.disconnect("finished", reset_pos_dynamics)
 
+func get_effect_anchor() -> Node3D:
+	return effect_anchor
 
 
 

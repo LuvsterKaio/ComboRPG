@@ -1,59 +1,29 @@
-[gd_scene load_steps=30 format=3 uid="uid://doo6vdu5gxnd5"]
+[gd_scene load_steps=5 format=3 uid="uid://doo6vdu5gxnd5"]
 
 [ext_resource type="PackedScene" uid="uid://rf3t0s38el21" path="res://Scenes/Actors/Base_Actor.tscn" id="1_24oj7"]
-[ext_resource type="Texture2D" uid="uid://ba7g70cd0070q" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/en_dustSpecter_Attack_ref_f.png" id="2_x22c1"]
-[ext_resource type="Texture2D" uid="uid://bspxbws85s5ns" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/en_dustSpecter_Prepare_ref_f.png" id="3_v8xld"]
-[ext_resource type="Texture2D" uid="uid://douqq77sgybem" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/en_dustSpecter_Hurt_ref_f.png" id="4_v5230"]
+[ext_resource type="Shader" uid="uid://eigbp850v447" path="res://Resource/Native Resource/Materials/Shaders/vs_ActorBaseShader.tres" id="2_f5xkm"]
 [ext_resource type="Texture2D" uid="uid://c8evfmp0v8kqb" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_01.png" id="5_68g7p"]
-[ext_resource type="Texture2D" uid="uid://clx3ignf1j4gj" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_02.png" id="6_sre36"]
-[ext_resource type="Texture2D" uid="uid://dhjo43xj4ij0w" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_03.png" id="7_d3qp0"]
-[ext_resource type="Texture2D" uid="uid://bohlw0rm1jtd1" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_04.png" id="8_be8qi"]
-[ext_resource type="Texture2D" uid="uid://bijlbm203caq4" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_05.png" id="9_2ckn1"]
-[ext_resource type="Texture2D" uid="uid://bstjhqmuehww1" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_06.png" id="10_wf4ul"]
-[ext_resource type="Texture2D" uid="uid://b04vu31shkj0m" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_07.png" id="11_rc2nt"]
-[ext_resource type="Texture2D" uid="uid://d0wp0b4v7k2pi" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_08.png" id="12_vnovr"]
-[ext_resource type="Texture2D" uid="uid://djy3t78nrrnpf" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_09.png" id="13_vdsx4"]
-[ext_resource type="Texture2D" uid="uid://cgkfw1iv0gg2q" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_10.png" id="14_qhhjk"]
-[ext_resource type="Texture2D" uid="uid://6hrqdafnsarm" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_11.png" id="15_hgrle"]
-[ext_resource type="Texture2D" uid="uid://cpl0s3ua7x2yi" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_12.png" id="16_y3fw7"]
-[ext_resource type="Texture2D" uid="uid://b6g28hylx83hk" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_13.png" id="17_7m3qr"]
-[ext_resource type="Texture2D" uid="uid://chrhuc1ffwi0c" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_14.png" id="18_dwlg7"]
-[ext_resource type="Texture2D" uid="uid://dq16h4lbbfrac" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_15.png" id="19_thise"]
-[ext_resource type="Texture2D" uid="uid://sfe8wjcbh02n" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_16.png" id="20_fbqo8"]
-[ext_resource type="Texture2D" uid="uid://bj0fn4wi27tfm" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_17.png" id="21_4y55v"]
-[ext_resource type="Texture2D" uid="uid://dtdkpjt7xkg08" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_18.png" id="22_qdlic"]
-[ext_resource type="Texture2D" uid="uid://dif3baigcn2hl" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_19.png" id="23_5tu1e"]
-[ext_resource type="Texture2D" uid="uid://bkci2atk0lnhy" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_20.png" id="24_hsg8c"]
-[ext_resource type="Texture2D" uid="uid://lx2na0gtcb5" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_21.png" id="25_vyiab"]
-[ext_resource type="Texture2D" uid="uid://bvyl82wwg6h2r" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_22.png" id="26_4mg6d"]
-[ext_resource type="Texture2D" uid="uid://1tr3c36kk4a6" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_23.png" id="27_o7iyp"]
-[ext_resource type="Texture2D" uid="uid://bo3shul53gx5i" path="res://Assets/Sprites/Characters/Enemies/Specters/Dust/Poses/Idle/en_dustSpecter_anim_Idle_24.png" id="28_hben3"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wau0q"]
-animations = [{
-"frames": [ExtResource("2_x22c1")],
-"loop": true,
-"name": &"Attack",
-"speed": 5.0
-}, {
-"frames": [ExtResource("3_v8xld")],
-"loop": true,
-"name": &"Cast",
-"speed": 5.0
-}, {
-"frames": [ExtResource("4_v5230")],
-"loop": true,
-"name": &"Hurt",
-"speed": 5.0
-}, {
-"frames": [ExtResource("5_68g7p"), ExtResource("6_sre36"), ExtResource("7_d3qp0"), ExtResource("8_be8qi"), ExtResource("9_2ckn1"), ExtResource("10_wf4ul"), ExtResource("11_rc2nt"), ExtResource("12_vnovr"), ExtResource("13_vdsx4"), ExtResource("14_qhhjk"), ExtResource("15_hgrle"), ExtResource("16_y3fw7"), ExtResource("17_7m3qr"), ExtResource("18_dwlg7"), ExtResource("19_thise"), ExtResource("20_fbqo8"), ExtResource("21_4y55v"), ExtResource("22_qdlic"), ExtResource("23_5tu1e"), ExtResource("24_hsg8c"), ExtResource("25_vyiab"), ExtResource("26_4mg6d"), ExtResource("27_o7iyp"), ExtResource("28_hben3")],
-"loop": true,
-"name": &"Idle",
-"speed": 12.0
-}]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85nor"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_f5xkm")
+shader_parameter/FlipHorizontal = false
+shader_parameter/FlipVertical = false
+shader_parameter/OutlineSize = 0.0
+shader_parameter/OutlineColor = Color(1, 0, 1, 0)
+shader_parameter/Metallic = 0.0
+shader_parameter/Roughness = 1.0
+shader_parameter/Specular = 0.5
+shader_parameter/SelfBrillance = 0.0
+shader_parameter/ColorOverlay = Color(1, 1, 1, 0)
+shader_parameter/CharacterTexture = ExtResource("5_68g7p")
 
 [node name="Actor" instance=ExtResource("1_24oj7")]
 
 [node name="Image" parent="Base" index="0"]
+material_override = SubResource("ShaderMaterial_85nor")
 offset = Vector2(0, 120)
-frames = SubResource("SpriteFrames_wau0q")
+
+[node name="EffectAnchor" parent="Base" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115737, 0.716234, 0)

@@ -9,7 +9,7 @@ signal item_removed(item:Resource)
 @export var slotName : String = "Weapon"
 @export var slotTags : Array[String] = []
 
-var itemSlotted : Resource = null
+@export var itemSlotted : Resource = null
 var slotFilled : bool = false
 
 
@@ -35,6 +35,7 @@ func remove_item() -> Resource:
 		emit_changed()
 	
 	return result
+
 
 func slot_item(item:Resource, can_swap:bool = false) -> Resource:
 	var result = null

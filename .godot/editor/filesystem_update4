@@ -1,21 +1,23 @@
-res://Scenes/Interface/Elements/SkillRelated/UIelement_SkillFolder.tscn
-res://Scripts/Interface/UIe_BaseBattleMenuNode.gd
-res://Scripts/Interface/UIe_ProfilePropertyBar.gd
+res://Scenes/combat_scene.tscn
+res://Resource/Native Resource/Materials/Shaders/vs_ActorBaseShader.tres
+res://Resource/Native Resource/Materials/3D/3dm_BaseActorShader.tres
 res://Resource/Custom Resources/Character Resources/CharacterCore/Allied/cr_cc_Main0.tres
 res://Resource/Custom Resources/Character Resources/CharacterCore/Foe/cr_cc_FoeTest.tres
 res://Resource/Native Resource/Materials/Shaders/vs_OrganicNoiseBar.tres
 res://Resource/Native Resource/Materials/Shaders/vs_ColorSiluette.tres
 res://Resource/Native Resource/Materials/Shaders/vs_GradientModulate.tres
 res://Resource/Native Resource/Materials/Shaders/vs_SkillIconFrame.tres
-res://Resource/Native Resource/Materials/Shaders/vs_OptionButton.tres
-res://Resource/Native Resource/StyleBoxes/Buttons/Basic0/sb_button_basic0_disabled.tres
 res://Resource/Native Resource/StyleBoxes/Buttons/Basic0/sb_button_basic0_focus.tres
 res://Resource/Native Resource/Materials/Shaders/vs_ActionBar.tres
-res://Scenes/combat_scene.tscn
-res://Scripts/Custom Resources/Stats/cr_CharacterSkills.gd
-res://Scripts/Interface/UIe_BattleMenuNode_Skills.gd
-res://Scripts/Interface/UIe_SkillFolder_Combat.gd
+res://Resource/Native Resource/Materials/Shaders/vs_OptionButton.tres
+res://Resource/Native Resource/StyleBoxes/Buttons/Basic0/sb_button_basic0_disabled.tres
+res://Scenes/Interface/Elements/UIelement_SequencerSkillButton.tscn
 res://Scenes/Interface/Elements/UIelement_BaseSkillButton.tscn
-res://Scripts/Interface/UIe_SkillButton.gd
-res://Scripts/Interface/ui_BattleMenuController.gd
+res://Scenes/Interface/Elements/UIelement_ProfileIcon.tscn
+res://Scenes/Interface/Elements/UIelement_TargetTag.tscn
+res://Scenes/Actors/ba_MainCharacter.tscn
+res://Scripts/Scenarios/Interface/UIse_TargetTagController.gd
+res://Scripts/Interface/UIe_TargetTag.gd
+res://Scripts/Scenarios/Battle/cs_CoreSystem_Battle.gd
+res://Scripts/Scenarios/Battle/cs_BattleUI.gd
 res://Scripts/Scenarios/Battle/cs_CoreSystem_Progress.gd

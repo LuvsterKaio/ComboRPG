@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da38ctft8m2k4"
-path.s3tc="res://.godot/imported/Trajn_01_Idle_10.png-28370e52b0565671abe5f90532aaeada.s3tc.ctex"
+path="res://.godot/imported/Trajn_01_Idle_10.png-28370e52b0565671abe5f90532aaeada.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Characters/Allies/Trajn/Battle/Poses/Idle/Trajn_01_Idle_10.png"
-dest_files=["res://.godot/imported/Trajn_01_Idle_10.png-28370e52b0565671abe5f90532aaeada.s3tc.ctex"]
+dest_files=["res://.godot/imported/Trajn_01_Idle_10.png-28370e52b0565671abe5f90532aaeada.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

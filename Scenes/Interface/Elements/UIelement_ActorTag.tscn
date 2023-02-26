@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvs5yb7mik85d"]
+[gd_scene load_steps=21 format=3 uid="uid://cvs5yb7mik85d"]
 
 [ext_resource type="Script" path="res://Scripts/Interface/UIe_ActorTrackTag.gd" id="1_5xstg"]
 [ext_resource type="Material" uid="uid://cx26t2ua8a33n" path="res://Resource/Native Resource/Materials/Canvas/mat_CanvasAdd.tres" id="2_di0uj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://hukeqtcrcc7b" path="res://Assets/Interface/TrackTags/CharacterTag3_back.png" id="5_jj45j"]
 [ext_resource type="Texture2D" uid="uid://bpl4v7sejq60p" path="res://Assets/Interface/TrackTags/CharacterTag3_border.png" id="6_5cqbl"]
 [ext_resource type="FontFile" uid="uid://cppvbwhxpcp01" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-BoldItalic.ttf" id="7_707f8"]
+[ext_resource type="FontFile" uid="uid://hnfvskrjjyvv" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-Bold.ttf" id="8_uyxgk"]
 
 [sub_resource type="Gradient" id="Gradient_caco1"]
 colors = PackedColorArray(1, 1, 1, 1, 0.0244755, 0.0244755, 0.0244755, 1)
@@ -35,6 +36,12 @@ color_ramp = SubResource("GradientTexture1D_ehkk8")
 resource_local_to_scene = true
 shader = ExtResource("4_tflow")
 shader_parameter/ColorModulate = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xqob7"]
+font = ExtResource("8_uyxgk")
+font_size = 32
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_f6vaj"]
 font = ExtResource("7_707f8")
@@ -127,6 +134,28 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Back/ActionValue:scale:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0.333679, 1, -0.25, 0.00670159, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Back/ActionValue:scale:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0.324062, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
 
 [sub_resource type="Animation" id="Animation_liipo"]
 resource_name = "Initiate"
@@ -198,6 +227,17 @@ tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.175, 0.5, 0.25, 0),
 "times": PackedFloat32Array(0, 0.4)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Back/ActionValue:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.6)
 }
 
 [sub_resource type="Animation" id="Animation_bg86m"]
@@ -281,6 +321,51 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Back/ActionValue:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Back/ActionValue:scale:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Back/ActionValue:scale:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Back/ActionValue:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hysd1"]
 _data = {
@@ -344,6 +429,24 @@ grow_vertical = 2
 texture = ExtResource("6_5cqbl")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="ActionValue" type="Label" parent="Back"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -18.0
+offset_right = 1.0
+offset_bottom = 24.0
+grow_vertical = 2
+pivot_offset = Vector2(45, 19)
+theme_override_font_sizes/font_size = 1
+text = "16"
+label_settings = SubResource("LabelSettings_xqob7")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="CharacterIndex" type="Label" parent="."]
 visible = false

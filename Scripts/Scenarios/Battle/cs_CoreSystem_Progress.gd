@@ -13,10 +13,13 @@ signal characters_entered_the_scene
 	# Core
 @onready var characterCore : Node = get_node("%CharacterCore")
 @onready var calculationCore : Node = get_node("%CalculationCore")
+@onready var battleCore : Node = get_node("%BattleCore")
 
 	# UI
-@onready var turntrack : Control = get_parent().get_node("UILayer/UI/BattleUI/Elements/TurnTrack")
-@onready var profiles  : Control = get_parent().get_node("UILayer/UI/BattleUI/Elements/Profiles")
+@onready var turntrack   : Control = get_parent().get_node("UILayer/UI/BattleUI/Elements/TurnTrack")
+@onready var profiles    : Control = get_parent().get_node("UILayer/UI/BattleUI/Elements/Profiles")
+@onready var menubase    : Control = get_parent().get_node("UILayer/UI/BattleUI/Menu")
+@onready var targetindex : Control = get_parent().get_node("UILayer/UI/BattleUI/Elements/TargetIndex")
 
 	# Timer
 @onready var timer : Timer = get_node("Timer")
@@ -71,7 +74,7 @@ func turn_machine() -> void:
 			"Initial":
 				initial_phase()
 				pass
-			"Turn Start":
+			"TurnStart":
 				turnstart_phase()
 				pass
 			"Action":
@@ -139,23 +142,23 @@ func erase_objectives() -> Array:
 	return keys
 
 
-# TURN PHASE FUNCTIONS
+# TURN START PHASE FUNCTIONS
 
 func turnstart_phase() -> void:
 	match current_phase:
 		0:
 			if !ready_characters.is_empty():
-				var char = null
+				var _char = null
 				if !ready_characters.size() > 1:
-					char = get_character_most_ready(ready_characters)
+					_char = get_character_most_ready(ready_characters)
 				else:
-					char = ready_characters.front()
+					_char = ready_characters.front()
 				
-				if char != null:
-					var tag = char.get_linked_interfaceelement("ActorTag")
+				if _char != null:
+					var tag = _char.get_linked_interfaceelement("ActorTag")
 					tag.goal_reached()
-					if char.character_allied:
-						pass
+					if _char.character_allied:
+						initiate_turn_as_character(_char, false)
 					else:
 						pass
 					
@@ -185,20 +188,44 @@ func initiate_turn_as_character(actor_profile:ActorProfile, is_cpu:bool = false)
 	is_turnowner_cpu = is_cpu
 	current_turnowner = actor_profile
 	
+	# BATTLE CORE
+	battleCore.character_turnstart(actor_profile)
+	
+	# FOCUS CAMERA
+	var char_actor = actor_profile.actor_scene
+	var focus_pos = char_actor.get_effect_anchor().global_position
+	var camera = get_parent().battle_camera
+	var fp_v2 = Vector2(focus_pos.x, focus_pos.y)
+	camera.move_interpolation(fp_v2, 0.4)
+	
+	if !is_cpu:
+		
+		# INITIATE MENU
+		menubase.initiate_menu_on_character(actor_profile)
+		# FOCUS PROFILE
+		var ap = actor_profile.get_linked_interfaceelement("UI Profile")
+		profiles.focus_on_profile(ap)
+		ap.expand_profile(true)
+		# OPEN ACTIONSEQUENCER
+		battleCore.show_actionsequencer()
+		# OPEN TARGETINDEX
+		targetindex.show_targetindex()
+		
+		progress("Action", 0, 0.2)
+	
 	pass
 
 
-func process_turn(actor_profile:ActorProfile) -> void:
-	
-	
+# ACTION PHASE FUNCTIONS
+
+func action_phase() -> void:
+	match current_phase:
+		0:
+			pass
+		1:
+			pass
+		
 	pass
-
-
-func process_machineTurn(actor_profile:ActorProfile) -> void:
-	
-	
-	pass
-
 
 
 
@@ -211,7 +238,7 @@ func recover_phase() -> void:
 			recovering(char_list) 
 			
 		1:
-			progress("Turn", 0, 0.0)
+			progress("TurnStart", 0, 0.0)
 
 
 func recovering(character_list:Array) -> void:
@@ -251,6 +278,7 @@ func initial_phase() -> void:
 	match current_phase:
 		0:
 			set_phase_objective("Set Profiles")
+			set_phase_objective("Set Targettags")
 			set_phase_objective("Set Initiative")
 			set_phase_objective("Characters Moved")
 			
@@ -263,7 +291,7 @@ func initial_phase() -> void:
 		2:
 			await phase_objectives_met
 			if check_objectives():
-				progress("Turn", 0, 1.0)
+				progress("TurnStart", 0, 1.0)
 	
 	pass
 
@@ -273,13 +301,20 @@ func initiate_battle() -> void:
 	# SET FLOATING EFFECTS
 	###
 	
+	
+	
 	# MOVE CHARACTERS TO SCENE
-	var allied_cs = characterCore.get_character_list("Allied")
-	var enemy_cs = characterCore.get_character_list("Foe")
+	var allied_cs : Array = characterCore.get_character_list("Allied")
+	var enemy_cs : Array = characterCore.get_character_list("Foe")
 	move_characters_to_scene(allied_cs, enemy_cs)
 	
 	complete_phase_objective("Characters Moved")
 	await get_tree().create_timer(0.5).timeout
+	
+	# TARGET TAGS
+	var enemy_first : Array = enemy_cs + allied_cs
+	targetindex.setup_targets(enemy_first)
+	complete_phase_objective("Set Targettags")
 	
 	# PROFILES
 	profiles.initialize_profiles(allied_cs)
@@ -322,7 +357,7 @@ func declare_initiative(character_list:Array) -> void:
 		elif coe == 0.0:
 			pos = initiative_base
 		
-		var perc_pos = float(pos) / 100.0
+		var _perc_pos = float(pos) / 100.0
 		ca.set_ap(pos, true)
 		
 		# CREATE ACTOR TAG ON LOCATION

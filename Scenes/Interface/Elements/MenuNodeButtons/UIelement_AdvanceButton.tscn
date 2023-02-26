@@ -62,7 +62,7 @@ metadata/_edit_group_ = true
 
 [node name="Back" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_bxiik")
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -70,7 +70,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q0ycw")
 
 [node name="Ornaments" type="TextureRect" parent="Back"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -2.0
@@ -80,19 +80,20 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_3mvnb")
-ignore_texture_size = true
+expand_mode = 1
 
 [node name="Name" type="Label" parent="."]
-offset_left = 69.0
-offset_top = 3.0
-offset_right = 217.0
-offset_bottom = 47.0
+layout_mode = 1
+offset_left = 58.0
+offset_top = 4.0
+offset_right = 206.0
+offset_bottom = 48.0
 text = "Skills"
 label_settings = SubResource("LabelSettings_1lbem")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0.392157)
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 1.0
@@ -106,11 +107,12 @@ theme_override_styles/disabled = ExtResource("4_l85ho")
 theme_override_styles/focus = ExtResource("5_ugpqi")
 
 [node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
 offset_top = -6.0
 offset_right = 52.0
 offset_bottom = 47.0
 texture = ExtResource("6_72dbe")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 4
 
 [connection signal="button_up" from="Button" to="." method="_on_button_up"]

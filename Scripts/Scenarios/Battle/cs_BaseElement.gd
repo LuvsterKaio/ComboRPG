@@ -13,3 +13,7 @@ func _process(_delta) -> void:
 
 func get_actor_startpoints() -> Array:
 	return [get_node("ActorPositions/AlliedStartpoint"), get_node("ActorPositions/FoeStartpoint")]
+
+func get_camera_pod() -> Node3D:
+	var result = get_node("CameraPod")
+	return result

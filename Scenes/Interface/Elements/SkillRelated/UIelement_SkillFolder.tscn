@@ -1,11 +1,11 @@
 [gd_scene load_steps=22 format=3 uid="uid://btoi7f4lw028b"]
 
 [ext_resource type="Script" path="res://Scripts/Interface/UIe_SkillFolder_Combat.gd" id="1_hlp6a"]
-[ext_resource type="PackedScene" uid="uid://dng18os83mxxi" path="res://Scenes/Interface/Elements/UIelement_BaseSkillButton.tscn" id="2_armsf"]
+[ext_resource type="PackedScene" uid="uid://cak36cd6nends" path="res://Scenes/Interface/Elements/UIelement_BaseSkillButton.tscn" id="2_armsf"]
 [ext_resource type="FontFile" uid="uid://ddky47bfigw8h" path="res://Resource/Native Resource/Fonts/Base/Liberation/LiberationSerif-Italic.ttf" id="3_fij7o"]
 [ext_resource type="Material" uid="uid://cx26t2ua8a33n" path="res://Resource/Native Resource/Materials/Canvas/mat_CanvasAdd.tres" id="4_mlhur"]
 [ext_resource type="PackedScene" uid="uid://dyglx8eybebcx" path="res://Scenes/Interface/Elements/Graphical/UIe_SkillIcon.tscn" id="5_rambx"]
-[ext_resource type="Texture2D" uid="uid://c7yv1cnda5q7v" path="res://Assets/Icons/Skills/Frames/SkillFrame_Hexa_mask.png" id="6_w5qup"]
+[ext_resource type="Texture2D" uid="uid://c7yv1cnda5q7v" path="res://Assets/Icons/Skills/Frames/Hexa/SkillFrame_Hexa_mask.png" id="6_y537b"]
 [ext_resource type="FontFile" uid="uid://hnfvskrjjyvv" path="res://Resource/Native Resource/Fonts/Base/Urbanist/Urbanist-Bold.ttf" id="7_jb0r0"]
 [ext_resource type="Texture2D" uid="uid://b0htdq5besh83" path="res://Assets/Icons/Skills/Segments/icon_SkillSeg_Weapon0.png" id="8_1jbi4"]
 [ext_resource type="Texture2D" uid="uid://bbrnddj1v4hpd" path="res://Assets/Interface/Misc/DownArrow0.png" id="9_ath6s"]
@@ -58,17 +58,17 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6nopb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7jo3"]
-texture = ExtResource("6_w5qup")
+texture = ExtResource("6_y537b")
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(1, 1, 1, 0.137255)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2l06n"]
-texture = ExtResource("6_w5qup")
+texture = ExtResource("6_y537b")
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.482353, 0.482353, 0.482353, 0.196078)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1jt4"]
-texture = ExtResource("6_w5qup")
+texture = ExtResource("6_y537b")
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.352941, 0.352941, 0.352941, 0.313726)
 
